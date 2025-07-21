@@ -31,6 +31,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+<<<<<<< HEAD
 
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
@@ -99,3 +100,5 @@ function topFunction() {
         behavior: "smooth"
     });
 }
+=======
+>>>>>>> d2871f9a2c575095907642692de322524b87d494
