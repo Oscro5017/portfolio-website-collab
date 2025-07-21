@@ -1,6 +1,9 @@
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const backToTop = document.getElementById("bot-to-top-button");
 
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
@@ -58,3 +61,41 @@ contactForm.addEventListener('submit', (e) => {
         alert('Please fill in all fields.');
     }
 });
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+            // Remove active class from clicked button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        projectCards.forEach((card, index) => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.classList.remove('hide');
+            } else {
+                card.classList.add('hide');
+            }
+        });
+    });
+});
+
+window.addEventListener('scroll', onScroll);
+
+function onScroll() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        backToTop.style.display = "flex";
+    } else {
+        backToTop.style.display = "none";
+    }
+}
+
+backToTop.addEventListener("click", topFunction);
+
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}

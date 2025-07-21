@@ -559,3 +559,50 @@ body {
         flex-direction: column;
     }
 }
+
+/* Project Filter */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+.project-card.hide {
+    display: none;
+}
+
+#bot-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 999;
+    opacity: 0.6;
+    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, font-size 0.3s ease;;
+    display: flex;
+}
+
+#bot-to-top-button:hover {
+    opacity: 1;
+    font-size: larger;
+    transform: translateY(-3px);
+}
