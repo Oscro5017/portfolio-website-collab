@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Collab - Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/script.js" defer></script>
     <script src="js/animation.js" defer></script>
+    <script src="js/darkMode.js" defer></script>
 </head>
+
+<div class="loader">
+    <div class="loader-content">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+</div>
 
 <body>
     <!-- Navigation -->
@@ -26,9 +34,11 @@
                 <li><a href="#skills" class="nav-link" data-target="skills">Skills</a></li>
                 <li><a href="#projects" class="nav-link" data-target="projects">Projects</a></li>
                 <li><a href="#contact" class="nav-link" data-target="contact">Contact</a></li>
-
-            <div/>
-
+                <div class="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </div>
+            <div />
+            
             <div id="lqOverlay"></div>
 
             <div class="nav-toggle">
@@ -39,12 +49,16 @@
         </div>
     </nav>
 
+    <div class="scroll-progress">
+        <div class="progress-bar"></div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Hello, I'm <span class="highlight">Nutthapong</span></h1>
             <p class="hero-subtitle">Full Stack Developer</p>
-            <p class="hero-description">I create beautiful and functional web applications</p>
+            <p class="hero-description">An indie programmers who are better at other things than programming</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -69,7 +83,7 @@
                             <p>Years Experience</p>
                         </div>
                         <div class="stat-item">
-                            <h3>15+</h3>
+                            <h3>3+</h3>
                             <p>Projects Completed</p>
                         </div>
                         <div class="stat-item">
@@ -106,19 +120,14 @@
                     <p>ES6+ features and modern JavaScript</p>
                 </div>
                 <div class="skill-item">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <p>Component-based UI development</p>
+                    <i class="fa-brands fa-ubuntu"></i>
+                    <h3>Ubuntu</h3>
+                    <p>Working with Ubuntu for development and server environments</p>
                 </div>
                 <div class="skill-item">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
-                    <p>Server-side JavaScript development</p>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <h3>MongoDB</h3>
-                    <p>NoSQL database management</p>
+                    <i class="fa-solid fa-cubes"></i>
+                    <h3>tinkercad</h3>
+                    <p>product design in 3D model format</p>
                 </div>
             </div>
         </div>
@@ -135,30 +144,35 @@
                         <h3>E-commerce Website</h3>
                         <p>A full-stack e-commerce solution built with React and Node.js</p>
                         <div class="project-links">
-                            <a href="https://htmlpreview.github.io/?https://github.com/Oscro5017/mini-ecommerce-collaboration/blob/main/index.html" class="btn-small">Live Demo</a>
-                            <a href="https://github.com/Oscro5017/mini-ecommerce-collaboration.git" class="btn-small-secondary">GitHub</a>
+                            <a href="https://htmlpreview.github.io/?https://github.com/Oscro5017/mini-ecommerce-collaboration/blob/main/index.html"
+                                class="btn-small">Live Demo</a>
+                            <a href="https://github.com/Oscro5017/mini-ecommerce-collaboration.git"
+                                class="btn-small-secondary">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="images/project2.jpg" alt="Project 2">
                     <div class="project-info">
-                        <h3>Online Shop</h3>
+                        <h3>Online Shop(Under development)</h3>
                         <p>Online store where you can buy or order various products.</p>
                         <div class="project-links">
-                            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/Oscro5017/OscroOnlineShop/main/mainPage/index.html" class="btn-small">Live Demo</a>
-                            <a href="https://github.com/Oscro5017/OscroOnlineShop.git" class="btn-small-secondary">GitHub</a>
+                            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/Oscro5017/OscroOnlineShop/main/mainPage/index.html"
+                                class="btn-small">Live Demo</a>
+                            <a href="https://github.com/Oscro5017/OscroOnlineShop.git"
+                                class="btn-small-secondary">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <img src="images/project3.jpg" alt="Project 3">
                     <div class="project-info">
-                        <h3>Weather App</h3>
-                        <p>A responsive weather application with location-based forecasts</p>
+                        <h3>Acrizia(Under development)</h3>
+                        <p>Smart home control devices that have added special functions such as AI and other systems.
+                        </p>
                         <div class="project-links">
-                            <a href="#" class="btn-small">Live Demo</a>
-                            <a href="#" class="btn-small-secondary">GitHub</a>
+                            <a href="https://www.tinkercad.com/things/9GdSPyz5Y4C-acrizia-project" class="btn-small">3D
+                                Model</a>
                         </div>
                     </div>
                 </div>
@@ -190,8 +204,8 @@
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/Oscro5017"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
                     </div>
                 </div>
                 <form class="contact-form">

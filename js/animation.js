@@ -59,3 +59,50 @@ buttons.forEach(btn => {
 window.addEventListener('resize', () => {
   if (currentTarget) moveBoxToButton(currentTarget);
 });
+
+
+
+// Navbar background on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+});
+
+// Contact form handling
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    // Simple validation
+    if (name && email && message) {
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+// Loading Animation
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    setTimeout(() => {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }, 1000);
+});
+
+// Scroll Progress Indicator
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.offsetHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    
+    document.querySelector('.progress-bar').style.width = scrollPercent + '%';
+});
