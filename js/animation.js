@@ -62,6 +62,48 @@ window.addEventListener('resize', () => {
 
 
 
+const pButtons = document.querySelectorAll('.filter-btn');
+const highlightBox = document.getElementById('lq-project');
+
+let currentTarget1 = null;
+
+function moveBoxToButton1(btn) {
+  highlightBox.style.opacity = 100;
+  const rect = btn.getBoundingClientRect();
+  currentTarget1 = btn;
+
+  highlightBox.textContent = btn.dataset.info;
+
+  requestAnimationFrame(() => {
+    const boxWidth = highlightBox.offsetWidth;
+    const boxHeight = highlightBox.offsetHeight;
+
+    const left = rect.left + rect.width / 2 - boxWidth / 2;
+    const top = rect.top + rect.height / 2 - boxHeight / 2;
+
+    highlightBox.style.transform = `translate(${left}px, ${top}px)`;
+  });
+}
+
+pButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentTarget1 = btn;
+    moveBoxToButton1(btn);
+  });
+});
+
+// อัปเดตตำแหน่งทุกครั้งที่ resize หรือ scroll
+window.addEventListener('resize', () => {
+  if (currentTarget1) moveBoxToButton1(currentTarget1);
+});
+
+window.addEventListener('scroll', () => {
+  if (currentTarget1) moveBoxToButton1(currentTarget1);
+});
+
+
+
+
 // Loading Animation
 window.addEventListener('load', () => {
     const loader = document.querySelector('.loader');
