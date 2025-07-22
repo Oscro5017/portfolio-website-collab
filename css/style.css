@@ -50,7 +50,7 @@ body {
     width: 100%;
     background: var(--bg-color-1);
     backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 999;
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
@@ -85,7 +85,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     position: relative;
-    z-index: 11;
+    z-index: 1000;
     transition: all 0.3s ease;
 }
 
@@ -114,17 +114,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    transform: translate();
     background: var(--lq-bg);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     padding: 1.5rem 2.5rem;
     transition: transform 0.3s ease;
-    z-index: 1;
     white-space: nowrap;
     opacity: 0;
+    z-index: 900;
 }
 
 .theme-toggle {
@@ -539,7 +537,7 @@ body {
     }
 
     .nav-menu.active {
-        left: 0;
+            left: 0;
     }
 
     .nav-toggle {
