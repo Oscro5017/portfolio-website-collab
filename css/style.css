@@ -727,3 +727,12 @@ body {
     width: 0%;
     transition: width 0.1s ease;
 }
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
