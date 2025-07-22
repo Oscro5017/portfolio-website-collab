@@ -11,9 +11,11 @@
     --lq-bg: linear-gradient(135deg, rgba(255, 85, 195, 0.3) 0%, rgba(195, 85, 255, 0.3) 100%);
     --text-color: rgb(40, 40, 40);
     --i-color: rgb(255, 85, 195);
+    --hl-1:rgb(0, 255, 255);
+    --hl-2:rgb(255, 37, 179);
     --bg-card: rgba(255, 85, 195, 0.1);
     --bg-card-border: rgba(255, 85, 195, 0.5);
-    --bg-project: linear-gradient(135deg, rgba(255, 85, 195, 0.5) 0%, rgba(195, 85, 255, 0.5) 100%);
+    --bg-project: linear-gradient(135deg, rgba(255, 85, 195, 0.3) 0%, rgba(195, 85, 255, 0.3) 100%);
 }
 
 /* Dark Mode Styles */
@@ -24,6 +26,8 @@
     --lq-bg: linear-gradient(135deg, rgba(0, 235, 175, 0.3) 0%, rgba(0, 175, 235, 0.3) 100%);
     --text-color: rgb(240, 240, 240);
     --i-color: rgb(1, 175, 175);
+    --hl-1:rgb(0, 255, 255);
+    --hl-2:rgb(255, 85, 195);
     --bg-card: rgba(0, 255, 255, 0.1);
     --bg-card-border: rgba(0, 255, 255, 0.5);
     --bg-project: linear-gradient(135deg, rgba(0, 135, 100, 1) 0%, rgba(0, 100, 135, 1) 100%);
@@ -121,7 +125,6 @@ body {
     padding: 1.5rem 2.5rem;
     transition: transform 0.3s ease;
     white-space: nowrap;
-    opacity: 0;
     z-index: 900;
 }
 
@@ -158,8 +161,20 @@ body {
     margin-bottom: 1rem;
 }
 
-.highlight {
-    color: #f3e412;
+.highlight1 {
+    text-shadow: 
+        2px 0 var(--hl-1),
+        -2px 0 var(--hl-1),
+        0 -2px var(--hl-1),
+        0 2px var(--hl-1);
+}
+
+.highlight2 {
+    text-shadow: 
+        2px 0 var(--hl-2),
+        -2px 0 var(--hl-2),
+        0 -2px var(--hl-2),
+        0 2px var(--hl-2);
 }
 
 .hero-subtitle {
@@ -342,7 +357,22 @@ body {
 }
 
 .projects h2 {
-    color: rgba(255, 255, 255);
+    color: var(--text-color);
+}
+
+#lq-project {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--lq-bg);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    z-index: 1;
 }
 
 .projects-grid {
@@ -630,24 +660,26 @@ body {
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .filter-btn {
     padding: 10px 20px;
     border: none;
     background: transparent;
-    color: #666;
+    color: var(--text-color);
     cursor: pointer;
     border-radius: 25px;
     transition: all 0.3s ease;
     font-weight: 500;
 }
 
+/*
 .filter-btn.active,
 .filter-btn:hover {
-    background: #3498db;
     color: white;
 }
+*/
 
 .project-card.hide {
     display: none;

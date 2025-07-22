@@ -4,7 +4,6 @@ const lqhighlight = document.getElementById('lqOverlay');
 let currentTarget = null;
 
 function moveBoxToButton(btn) {
-    lqhighlight.style.opacity = 100;
   const rect = btn.getBoundingClientRect();
   currentTarget = btn;
 
@@ -60,24 +59,74 @@ window.addEventListener('resize', () => {
   if (currentTarget) moveBoxToButton(currentTarget);
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  const defaultBtn = document.querySelector('.nav-link');
+  if (defaultBtn) {
+    moveBoxToButton(defaultBtn);
+  }
+});
+
+
+
+const pButtons = document.querySelectorAll('.filter-btn');
+const highlightBox = document.getElementById('lq-project');
+
+let currentTarget1 = null;
+
+function moveBoxToButton1(btn) {
+  const container = btn.parentElement;
+  const btnRect = btn.getBoundingClientRect();
+  const containerRect = container.getBoundingClientRect();
+
+  const left = btnRect.left - containerRect.left;
+  const top = btnRect.top - containerRect.top;
+
+  highlightBox.style.transform = `translate(${left}px, ${top}px)`;
+  highlightBox.style.width = btn.offsetWidth + 'px';
+  highlightBox.style.height = btn.offsetHeight + 'px';
+  highlightBox.textContent = btn.dataset.info;
+
+  currentTarget1 = btn;
+}
+
+pButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentTarget1 = btn;
+    moveBoxToButton1(btn);
+  });
+});
+
+// อัปเดตตำแหน่งทุกครั้งที่ resize หรือ scroll
+window.addEventListener('resize', () => {
+  if (currentTarget1) moveBoxToButton1(currentTarget1);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const defaultBtn = document.querySelector('.filter-btn');
+  if (defaultBtn) {
+    moveBoxToButton1(defaultBtn);
+  }
+});
+
+
 
 
 // Loading Animation
 window.addEventListener('load', () => {
-    const loader = document.querySelector('.loader');
+  const loader = document.querySelector('.loader');
+  setTimeout(() => {
+    loader.classList.add('fade-out');
     setTimeout(() => {
-        loader.classList.add('fade-out');
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    }, 1000);
+      loader.style.display = 'none';
+    }, 500);
+  }, 1000);
 });
 
 // Scroll Progress Indicator
 window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.body.offsetHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    
-    document.querySelector('.progress-bar').style.width = scrollPercent + '%';
+  const scrollTop = window.pageYOffset;
+  const docHeight = document.body.offsetHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+
+  document.querySelector('.progress-bar').style.width = scrollPercent + '%';
 });
