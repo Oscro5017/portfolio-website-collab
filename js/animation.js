@@ -4,7 +4,7 @@ const lqhighlight = document.getElementById('lqOverlay');
 let currentTarget = null;
 
 function moveBoxToButton(btn) {
-    lqhighlight.style.display = 'block';
+    lqhighlight.style.opacity = 100;
   const rect = btn.getBoundingClientRect();
   currentTarget = btn;
 
